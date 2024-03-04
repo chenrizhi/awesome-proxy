@@ -1,0 +1,8 @@
+
+server:
+  listen: :8080
+proxy:
+  - location: /test/
+    proxyPass: http://127.0.0.1:8000/
+  - location: /api/
+    proxyPass: https://www.baidu.com/
