@@ -1,6 +1,6 @@
 # awesome-proxy
 
-发现KubernetesKubernetes一个很有意思的功能，就是通过代理来访问集群内部的服务。
+发现Kubernetes一个很有意思的功能，就是通过代理来访问集群内部的服务。
 
 比如说有个nginx服务，部署清单如下：
 
@@ -95,7 +95,12 @@ var atomsToAttrs = map[atom.Atom]sets.String{
 
 ## 项目介绍
 
-在我日常的运维工作中，是有这个需求的，实现一个类似的功能。其实就是搬了Kubernetes Service Proxy的代码过来，然后做了一些修改。
+在我日常的运维工作中，经常会遇到修改web软件的访问路径的需求。
+
+- 很多web软件，其静态资源是写绝对路径的，而且不支持配置上下文路径（Context Path） 或者叫 基路径（Base Path），而我们又想给这个web配置一个访问路径，如`/xxx-admin`。
+- 这个项目就可以轻易实现上诉需求。
+
+因此实现一个类似的功能。其实就是搬了Kubernetes Service Proxy的代码过来，然后做了一些修改。
 
 核心代码在Kubernetes源码中：
 
